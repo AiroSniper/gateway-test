@@ -24,6 +24,10 @@ export class AppService {
   allRooms(){
     return this.rooms_ms.send({cmd:'all-rooms'},[])
   }
+  oneRoom(id:string){
+    return this.rooms_ms.send({cmd:'one-room'},id)
+  }
+
 
   addPlayer(data:PlayerDTO){
     return this.players_teams_ms.send({cmd:'add-player'},data)

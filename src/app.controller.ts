@@ -1,4 +1,4 @@
-import { Controller, Get,Post, Body } from '@nestjs/common';
+import { Controller, Get,Post, Body, Param } from '@nestjs/common';
 import { AppService } from './app.service';
 import { PlayerDTO } from './dto/player.dto';
 import { RoomDTO } from './dto/room.dto';
@@ -48,6 +48,11 @@ export class AppController {
   @Post('upRoom')
   upRoom(@Body() data:RoomDTO){
    return this.appService.upRoom(data)
+  }
+
+  @Get('room/:id')
+  oneRoom(@Param() params){
+   return this.appService.oneRoom(params.id)
   }
   
   
